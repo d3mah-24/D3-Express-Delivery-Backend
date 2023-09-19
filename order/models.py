@@ -31,4 +31,4 @@ class Orders(models.Model):
         verbose_name_plural = "Orders"
 
     def __str__(self):
-        return self.customer.first_name
+        return self.SenderName
