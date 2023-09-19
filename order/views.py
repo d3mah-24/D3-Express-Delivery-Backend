@@ -11,7 +11,7 @@ class OrderCreatelistView(generics.ListCreateAPIView):
     def get_queryset(self):
         address = self.kwargs.get("address")
         queryset = Orders.objects.filter(
-            Q(receiverAddress=address) | Q(receiverAddress=address)
+            Q(SenderAddress=address) | Q(receiverAddress=address)
         )
         return queryset
 
