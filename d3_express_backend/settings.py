@@ -50,6 +50,8 @@ MIDDLEWARE = [
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
 ]
+CSRF_COOKIE_SECURE = False
+CSRF_COOKIE_SAMESITE = None
 
 ROOT_URLCONF = "d3_express_backend.urls"
 
