@@ -42,5 +42,6 @@ class Orders(models.Model):
     def save(self, *args, **kwargs):
         # Your custom logic here before saving
         # For example, you can modify fields or perform other actions
-        self.curr_location = self.SenderAddress
+        if self.curr_location is None:
+            self.curr_location = self.SenderAddress
         super(Orders, self).save(*args, **kwargs)
