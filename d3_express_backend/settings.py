@@ -45,13 +45,11 @@ MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
     "django.middleware.common.CommonMiddleware",
-    # "django.middleware.csrf.CsrfViewMiddleware",
+    "django.middleware.csrf.CsrfViewMiddleware",
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
 ]
-CSRF_COOKIE_SECURE = False
-CSRF_COOKIE_SAMESITE = None
 
 ROOT_URLCONF = "d3_express_backend.urls"
 
@@ -72,7 +70,7 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = "d3_express_backend.wsgi.application"
-
+ 
 AUTH_USER_MODEL = "accounts.CustomUser"
 
 # Database
