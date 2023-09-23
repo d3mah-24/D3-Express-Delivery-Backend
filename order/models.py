@@ -10,6 +10,7 @@ class Orders(models.Model):
     SenderPhone = models.CharField(max_length=30)
     receiverName = models.CharField(max_length=30)
     receiverAddress = models.CharField(max_length=30)
+    receiverAddress2 = models.CharField(max_length=30)
     receiverPhone = models.CharField(max_length=30)
     waybillno = models.CharField(max_length=30, unique=True)
     price = models.CharField(max_length=30)
@@ -22,6 +23,9 @@ class Orders(models.Model):
         ),
     )
     status = models.CharField(
+        max_length=30,
+    )
+    curr_location = models.CharField(
         max_length=30,
     )
     date = models.DateField(auto_now_add=True)
