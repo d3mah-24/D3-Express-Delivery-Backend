@@ -10,7 +10,7 @@ class Orders(models.Model):
     SenderPhone = models.CharField(max_length=30)
     receiverName = models.CharField(max_length=30)
     receiverAddress = models.CharField(max_length=30)
-    receiverAddress2 = models.CharField(max_length=30)
+    receiverAddress2 = models.CharField(max_length=30, blank=True, null=True)
     receiverPhone = models.CharField(max_length=30)
     waybillno = models.CharField(max_length=30, unique=True)
     price = models.CharField(max_length=30)
@@ -26,6 +26,8 @@ class Orders(models.Model):
         max_length=30,
     )
     curr_location = models.CharField(
+        blank=True,
+        null=True,
         max_length=30,
     )
     date = models.DateField(auto_now_add=True)
@@ -36,8 +38,9 @@ class Orders(models.Model):
 
     def __str__(self):
         return self.SenderName
+
     def save(self, *args, **kwargs):
         # Your custom logic here before saving
         # For example, you can modify fields or perform other actions
-        self.curr_location=  self.SenderAddress
+        self.curr_location = self.SenderAddress
         super(Orders, self).save(*args, **kwargs)
