@@ -3,9 +3,10 @@ from order.models import Orders
 from order.serializer import OrderSerializer
 from django.db.models import Q
 from django.views.decorators.csrf import csrf_exempt
+from django.utils.decorators import method_decorator
 
 
-@csrf_exempt
+@method_decorator(csrf_exempt, name='dispatch')
 class OrderCreatelistView(generics.ListCreateAPIView):
     lookup_field = "waybillno"
     serializer_class = OrderSerializer
@@ -18,7 +19,8 @@ class OrderCreatelistView(generics.ListCreateAPIView):
         return queryset
 
 
-@csrf_exempt
+
+@method_decorator(csrf_exempt, name='dispatch')
 class OrderRetriveUpdateView(generics.RetrieveUpdateDestroyAPIView):
     queryset = Orders.objects.all()
     serializer_class = OrderSerializer
