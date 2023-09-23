@@ -36,3 +36,8 @@ class Orders(models.Model):
 
     def __str__(self):
         return self.SenderName
+    def save(self, *args, **kwargs):
+        # Your custom logic here before saving
+        # For example, you can modify fields or perform other actions
+        self.curr_location=  self.SenderAddress
+        super(Orders, self).save(*args, **kwargs)
