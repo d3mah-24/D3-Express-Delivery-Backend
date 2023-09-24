@@ -19,8 +19,9 @@ class OrderCreatelistView(generics.ListCreateAPIView):
 
 
 @csrf_exempt
-def updater(req, waybillno, status):
+def updater(req, waybillno, status, address):
     order = Orders.objects.get(waybillno=waybillno)
+    order.curr_location = address
     order.status = status
     order.save()
     return HttpResponse(
@@ -29,12 +30,4 @@ def updater(req, waybillno, status):
     )
 
 
-@csrf_exempt
-def update_stat(req, waybillno, curr_location):
-    order = Orders.objects.get(waybillno=waybillno)
-    order.curr_location = curr_location
-    order.save()
-    return HttpResponse(
-        "Done",
-        status=200,
-    )
+ 
