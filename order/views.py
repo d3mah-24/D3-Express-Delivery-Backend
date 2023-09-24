@@ -18,7 +18,7 @@ class OrderCreatelistView(generics.ListCreateAPIView):
         return queryset
 
 
-@csrf_exempt()
+@csrf_exempt
 def updater(req, waybillno, status):
     order = Orders.objects.get(waybillno=waybillno)
     order.status = status
@@ -29,7 +29,7 @@ def updater(req, waybillno, status):
     )
 
 
-@csrf_exempt()
+@csrf_exempt
 def update_stat(req, waybillno, curr_location):
     order = Orders.objects.get(waybillno=waybillno)
     order.curr_location = curr_location
