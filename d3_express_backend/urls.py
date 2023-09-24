@@ -9,5 +9,5 @@ urlpatterns = [
     path("login/<str:username>/<str:password>", login_check),
     path("orders/<str:address>", OrderCreatelistView.as_view()),
     path("order", OrderCreatelistView.as_view()),
-    path("order/stat/<str:waybillno>/<str:status>/<str:address", updater),
+    path("order/stat/<str:waybillno>/<str:status>/<str:address>", updater),
 ]
